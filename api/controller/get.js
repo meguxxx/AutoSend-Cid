@@ -26,13 +26,13 @@ const getInfo = (req,res) => {
     const query = `SELECT balance FROM user WHERE discordid = "${req.params.discordid}"`;
     db.query(query, (error, data) => {
         if(error) res.json({respon: "gagal"});
-        // if(data.length == 0){
-        //     res.json({respon: "gagal"})
-        //     console.info(req.params.discordid)
-        //     return false;
-        // }
+        if(data.length == 0){
+            res.json({respon: "gagal"})
+            console.info(req.params.discordid)
+            return false;
+        }
         res.json({
-            respon:"berhsil",
+            respon:"berhasil",
             data: data
         })
     })
