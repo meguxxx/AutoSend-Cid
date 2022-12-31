@@ -11,6 +11,22 @@ const addUser = (req,res) => {
     });
 }
 
+const getInfo = (req,res) => {
+    const query = `SELECT balance FROM user WHERE discordid = ${req.body["value"]}`;
+    db.query(query, (error, data) => {
+        if(error) res.json({respon: "gagal"});
+        if(data.length == 0){
+            res.json({respon: "gagal"})
+            return false
+        }
+        res.json({
+            respon:"berhsil",
+            data: data
+        })
+    })
+}
+
 module.exports = {
-    addUser
+    addUser,
+    getInfo
 }

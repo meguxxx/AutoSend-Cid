@@ -9,6 +9,8 @@ module.exports = {
             title: "BALANCE",
 
         }
-        msg.reply(msg.author.id)
+        axios.get("http://localhost:3000/api/bal", {
+            
+        })
     }
 }
