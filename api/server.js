@@ -8,8 +8,10 @@ app.use(express.json());
 app.use("/", route.getStock);
 app.use("/", route.getUserInfo);
 app.use("/", route.getInfo);
+
 //POST
 app.use("/", route.addUser);
+
 
 //UPDATE
 app.use("/", route.updateBalance);

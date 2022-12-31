@@ -9,8 +9,10 @@ module.exports = {
             title: "BALANCE",
 
         }
-        axios.get("http://localhost:3000/api/bal", {
-            
-        })
+        const data = {
+            discordid: `${msg.author.id}`
+        }
+        axios.get("http://localhost:3000/api/bal",JSON.stringify(data))
+            .then(response => console.info(response))
     }
 }
